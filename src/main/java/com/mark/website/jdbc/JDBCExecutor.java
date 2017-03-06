@@ -21,7 +21,7 @@ public class JDBCExecutor implements SQLExecutor {
             ResultSet resultSet = statement.executeQuery();
             connection.close();
             return resultSet;
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return null;

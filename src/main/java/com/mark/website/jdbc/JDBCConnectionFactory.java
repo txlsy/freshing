@@ -23,14 +23,9 @@ public class JDBCConnectionFactory {
         this.prop = properties;
     }
 
-    public Connection getConnection() throws SQLException {
-        try {
-            Class.forName(prop.getDriver());
-            return DriverManager.getConnection(prop.getUrl(), prop.getUser(),prop.getPassword());
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return null;
+    public Connection getConnection() throws SQLException, ClassNotFoundException {
+        Class.forName(prop.getDriver());
+        return DriverManager.getConnection(prop.getUrl(), prop.getUser(),prop.getPassword());
     }
 
 }

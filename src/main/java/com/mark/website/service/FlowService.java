@@ -17,9 +17,9 @@ public class FlowService {
         JDBCExecutor executor = new JDBCExecutor();
         List<Flow> flowList = new ArrayList<>();
         String sql = "select * from flow";
-        ResultSet resultSet = executor.execute(sql,new ArrayList());
-        if (resultSet == null) return null;
         try {
+            ResultSet resultSet = executor.execute(sql,new ArrayList());
+            if (resultSet == null) return null;
             while (resultSet.next()){
                 Flow flow = new Flow();
                 flow.setId(Integer.valueOf(resultSet.getString("id")));
