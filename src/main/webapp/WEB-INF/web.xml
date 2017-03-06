@@ -11,9 +11,18 @@
         <location>/500.html</location>
     </error-page>
 
-    <!-- log listener 配置 -->
-
     <!-- context param 配置 -->
+    <context-param>
+        <param-name>jdbc</param-name>
+        <param-value>jdbc/jdbc-mysql.properties</param-value>
+    </context-param>
+
+    <!-- listener -->
+    <listener>
+        <listener-class>com.mark.website.context.ContextParamListener</listener-class>
+    </listener>
+
+    <!-- log listener 配置 -->
 
     <!-- 统一编码 -->
     <filter>
@@ -25,7 +34,7 @@
         </init-param>
     </filter>
 
-    <!-- spring mvc -->
+    <!-- servlet -->
     <servlet>
         <servlet-name>index</servlet-name>
         <servlet-class>com.mark.website.servlet.IndexServlet</servlet-class>
