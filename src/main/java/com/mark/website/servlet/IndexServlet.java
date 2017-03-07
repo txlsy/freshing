@@ -1,7 +1,7 @@
 package com.mark.website.servlet;
 
 import com.mark.website.model.Flow;
-import com.mark.website.service.FlowService;
+import com.mark.website.bean.FlowBean;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +20,7 @@ public class IndexServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        FlowService service = new FlowService();
+        FlowBean service = new FlowBean();
         List<Flow> flowList = service.getFlow(1, 20);
         if (flowList!=null) {
             for (Flow flow : flowList) {

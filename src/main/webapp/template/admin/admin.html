@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/image/favicon.ico">
+
+    <title>管理后台</title>
+
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/style/admin/cover.css" rel="stylesheet">
+    <link href="/style/admin/signin.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+            <form class="form-signin" method="post" onsubmit="return false;">
+                <label for="username" class="sr-only">用户名</label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="用户名" required autofocus>
+                <label for="password" class="sr-only">密码</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="密码" required>
+                <button class="btn btn-lg btn-primary btn-block">登陆</button>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/script/lib/layer/layer.js"></script>
+<script>
+    $(function () {
+        $('.btn').click(function () {
+            $.post("",$('.form-signin').serializeArray(), function (data) {
+                if(data=='false') layer.msg('用户名或密码错误');
+                else location.href = data;
+            });
+        })
+    });
+</script>
+</body>
+</html>

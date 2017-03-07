@@ -1,4 +1,4 @@
-package com.mark.website.service;
+package com.mark.website.bean;
 
 import com.mark.website.jdbc.JDBCExecutor;
 import com.mark.website.model.Flow;
@@ -11,12 +11,12 @@ import java.util.List;
 /**
  * @author mark on 2017/3/3.
  */
-public class FlowService {
+public class FlowBean {
 
     public List<Flow> getFlow(int start, int end) {
         JDBCExecutor executor = new JDBCExecutor();
         List<Flow> flowList = new ArrayList<>();
-        String sql = "select * from flow";
+        String sql = "SELECT * FROM flow";
         try {
             ResultSet resultSet = executor.execute(sql,new ArrayList());
             if (resultSet == null) return null;
