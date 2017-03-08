@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/image/favicon.ico">
+
+    <title>管理中心</title>
+
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style/lib/swiper/swiper3.07.min.css"/>
+    <style>
+        body {
+            background-color: #F2F2F2;
+        }
+        .banner {
+            margin-bottom: 20px;
+        }
+        .banner img {
+            height: auto;
+            max-width: 100%;
+        }
+
+        .item {
+            background-color: #fff;
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
+            padding: 15px;
+        }
+        .item img {
+            height: auto;
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row banner">
+            <div class="col-xs-12 col-sm-12">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="/image/f.image.jpg" width="2048"/></div>
+                        <div class="swiper-slide"><img src="/image/f.image.jpg" width="2048"/></div>
+                        <div class="swiper-slide"><img src="/image/f.image.jpg" width="2048"/></div>
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+
+                    <div class="swiper-button-prev swiper-button-white"></div>
+                    <div class="swiper-button-next swiper-button-white"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6 col-sm-6">
+                <div class="item">
+                    <img src="/image/f.image.jpg" width="1024"/>
+                    <h3 class="text-center">物品管理</h3>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6">
+                <div class="item">
+                    <img src="/image/f.image.jpg" width="1024"/>
+                    <h3 class="text-center">寻物管理</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/script/lib/swiper/swiper3.07.jquery.min.js"></script>
+    <script>
+        $(function () {
+            var mySwiper = new Swiper('.swiper-container', {
+                autoplay: 5000,
+                pagination: '.swiper-pagination',
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                autoplayDisableOnInteraction:false,
+                loop: true
+            })
+        })
+    </script>
+</body>
+</html>

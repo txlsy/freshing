@@ -48,11 +48,15 @@
 
     <servlet>
         <servlet-name>admin</servlet-name>
-        <servlet-class>com.mark.website.servlet.admin.AdminIndexServlet</servlet-class>
+        <servlet-class>com.mark.website.servlet.admin.AdminLoginServlet</servlet-class>
         <init-param>
             <param-name>admin-index</param-name>
             <param-value>/admin/index</param-value>
         </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>admin-index</servlet-name>
+        <servlet-class>com.mark.website.servlet.admin.AdminIndexServlet</servlet-class>
     </servlet>
 
     <!-- servlet-mapping -->
@@ -65,6 +69,10 @@
     <servlet-mapping>
         <servlet-name>admin</servlet-name>
         <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>admin-index</servlet-name>
+        <url-pattern>/admin/index</url-pattern>
     </servlet-mapping>
 
     <!-- filter-mapping -->
