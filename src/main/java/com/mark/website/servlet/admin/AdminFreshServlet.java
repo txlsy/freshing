@@ -7,14 +7,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * @author mark on 2017/3/7.
+ * @author mark on 2017/3/8.
  */
-public class AdminIndexServlet extends HttpServlet {
+public class AdminFreshServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/template/admin/index.html").include(request, response);
+        request.getRequestDispatcher("/template/admin/fresh.html").forward(request,response);
     }
 }

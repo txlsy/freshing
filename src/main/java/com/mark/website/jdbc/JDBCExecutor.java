@@ -15,8 +15,10 @@ public class JDBCExecutor implements SQLExecutor {
         try {
             Connection connection = JDBCConnectionFactory.getInstance().getConnection();
             PreparedStatement statement = connection.prepareStatement(sql);
-            for (int i = 0; i < params.size(); i++) {
-                statement.setObject(i+1,params.get(i));
+            if(params!=null) {
+                for (int i = 0; i < params.size(); i++) {
+                    statement.setObject(i + 1, params.get(i));
+                }
             }
             ResultSet resultSet = statement.executeQuery();
             connection.close();

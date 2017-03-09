@@ -28,6 +28,8 @@ public class AdminLoginServlet extends HttpServlet {
         Writer writer = response.getWriter();
         if(r) writer.write(this.getInitParameter("admin-index"));
         else writer.write(r.toString());
+        writer.flush();
+        writer.close();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

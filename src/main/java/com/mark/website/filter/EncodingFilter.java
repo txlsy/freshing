@@ -15,6 +15,7 @@ public class EncodingFilter implements Filter {
 	public void doFilter(ServletRequest req, ServletResponse res,
 			FilterChain chain) throws IOException, ServletException {
 		req.setCharacterEncoding(charset);
+		res.setCharacterEncoding(charset);
 		chain.doFilter(req, res);
 	}
 

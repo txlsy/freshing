@@ -20,12 +20,5 @@ public class IndexServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        FlowBean service = new FlowBean();
-        List<Flow> flowList = service.getFlow(1, 20);
-        if (flowList!=null) {
-            for (Flow flow : flowList) {
-                response.getWriter().println(flow.getTitle());
-            }
-        }
     }
 }

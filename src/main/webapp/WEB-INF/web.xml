@@ -58,6 +58,14 @@
         <servlet-name>admin-index</servlet-name>
         <servlet-class>com.mark.website.servlet.admin.AdminIndexServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>admin-fresh</servlet-name>
+        <servlet-class>com.mark.website.servlet.admin.AdminFreshServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>admin-fresh-list</servlet-name>
+        <servlet-class>com.mark.website.servlet.admin.AdminFreshListServlet</servlet-class>
+    </servlet>
 
     <!-- servlet-mapping -->
     <servlet-mapping>
@@ -73,6 +81,14 @@
     <servlet-mapping>
         <servlet-name>admin-index</servlet-name>
         <url-pattern>/admin/index</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>admin-fresh</servlet-name>
+        <url-pattern>/admin/fresh</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>admin-fresh-list</servlet-name>
+        <url-pattern>/admin/fresh/list</url-pattern>
     </servlet-mapping>
 
     <!-- filter-mapping -->

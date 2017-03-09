@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/image/favicon.ico">
+
+    <title>管理中心</title>
+
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/style/admin/fresh.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+    <div class="row banner">
+        <div class="col-xs-12 col-sm-12">
+            <img src="/image/f.image.jpg" width="2048" height="722"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12">
+            <div class="search">
+                <ul class="list-inline">
+                    <li><a class="label label-default" href="#">日式</a></li>
+                    <li><a class="label label-default" href="#">纯色</a></li>
+                    <li><a class="label label-default" href="#">木质</a></li>
+                </ul>
+                <form class="form-control search-box" onsubmit="return false">
+                    <input type="text" class="search-key" placeholder="search">
+                    <button type="submit" class="search-btn"><i class="glyphicon glyphicon-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row item-list">
+
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12">
+            <nav aria-label="Page navigation" style="float: right">
+                <ul class="pagination">
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="/script/lib/layer/layer.js"></script>
+<script>
+    $(function () {
+        getList(1);
+
+        $('.search-btn').click(function () {
+            layer.msg('暂时不可用');
+        })
+    });
+
+    function getList(page) {
+        $.get('/admin/fresh/list',{page:page}, function (data) {
+            var obj = $.parseJSON(data);
+            var html = '';
+            $(obj.list).each(function () {
+                html += '<div class="col-xs-6 col-sm-3">' +
+                        '<div class="item" attr-id="'+this.id+'">' +
+                        '<a target="_blank" href="'+this.url+'"><img src="'+this.image+'" width="1024" heigt="722"/></a>' +
+                        '<a href="'+this.url+'"><h5 class="text-center">'+this.title+'</h5></a>' +
+                        '</div>' +
+                        '</div>';
+            });
+            html += '<div class="col-xs-6 col-sm-3">' +
+                    '<div class="item">' +
+                    '<a href="javascript:plus()"><img src="/image/plus.png" width="1024"/></a>' +
+                    '<a href="javascript:plus()"><h5 class="text-center">呼吸一下</h5></a>' +
+                    '</div>' +
+                    '</div>';
+            $('.item-list').html(html);
+
+            var pageHtml =  '<li>' +
+                    '<a href="javascript:getList('+(page-1<1?1:page-1)+')" aria-label="Previous">' +
+                    '<span aria-hidden="true">&laquo;</span>' +
+                    '</a>' +
+                    '</li>';
+            for(var i=1;i<=obj.pages;i++) {
+                if(i==page) pageHtml += '<li class="active"><a>'+i+'</a></li>';
+                else pageHtml += '<li><a href="javascript:getList('+i+')">'+i+'</a></li>';
+            }
+            pageHtml += '<li>' +
+                    '<a href="javascript:getList('+(page+1>obj.pages?obj.pages:page-1)+')" aria-label="Next">' +
+                    '<span aria-hidden="true">&raquo;</span>' +
+                    '</a>' +
+                    '</li>';
+            $('.pagination').html(pageHtml);
+        });
+    }
+</script>
+</body>
+</html>

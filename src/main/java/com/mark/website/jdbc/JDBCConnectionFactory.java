@@ -28,4 +28,8 @@ public class JDBCConnectionFactory {
         return DriverManager.getConnection(prop.getUrl(), prop.getUser(),prop.getPassword());
     }
 
+    public int getPageSize() {
+        return prop.getSize();
+    }
+
 }
